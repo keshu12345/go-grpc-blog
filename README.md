@@ -98,8 +98,3 @@ This is an example of how to list things you need to use the software and how to
     go run blogPostServer/server.go -config config/prod
     ```
 
-
-
-
-
-
