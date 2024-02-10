@@ -1,0 +1,55 @@
+syntax = "proto3";
+option go_package= "./pb";
+
+package blog;
+
+// The blog post service definition.
+service BlogService {
+  rpc CreatePost (CreatePostRequest) returns (Post);
+  rpc ReadPost (ReadPostRequest) returns (Post);
+  rpc UpdatePost (UpdatePostRequest) returns (Post);
+  rpc DeletePost (DeletePostRequest) returns (DeletePostResponse);
+}
+
+// Blog post message
+message Post {
+  string post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  string publication_date = 5;
+  repeated string tags = 6;
+}
+
+// Create post request
+message CreatePostRequest {
+  string title = 1;
+  string content = 2;
+  string author = 3;
+  string publication_date = 4;
+  repeated string tags = 5;
+}
+
+// Read post request
+message ReadPostRequest {
+  string post_id = 1;
+}
+
+// Update post request
+message UpdatePostRequest {
+  string post_id = 1;
+  string title = 2;
+  string content = 3;
+  string author = 4;
+  repeated string tags = 5;
+}
+
+// Delete post request
+message DeletePostRequest {
+  string post_id = 1;
+}
+
+// Delete post response
+message DeletePostResponse {
+  bool success = 1;
+}
