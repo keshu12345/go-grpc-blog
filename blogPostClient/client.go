@@ -41,7 +41,7 @@ func getResponseFromServer(client pb.BlogServiceClient) {
 	if err != nil {
 		logger.Errorf("Unable to create newPost %v", err)
 	}
-	logger.Info("Post Created ...", newPost)
+	logger.Info("Post Created :", newPost)
 
 	// read post
 	getPost, err := clietService.ReadPost(ctx, client, newPost)

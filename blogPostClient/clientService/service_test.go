@@ -98,7 +98,7 @@ func TestClientService_UpdatePost(t *testing.T) {
 
 	assert.NoError(t, err)
 	assert.Equal(t, updatedPost, resultPost)
-	mockClient.AssertExpectations(t) // Verify that the expectations were met
+	mockClient.AssertExpectations(t) 
 }
 
 func TestClientService_DeletePost(t *testing.T) {
@@ -106,17 +106,11 @@ func TestClientService_DeletePost(t *testing.T) {
 	postToDelete := &pb.Post{PostId: "post123"}
 	expectedResponse := &pb.DeletePostResponse{Success: true}
 
-	// Setting up the expected call on the mock with the specific request
 	mockClient.On("DeletePost", mock.Anything, &pb.DeletePostRequest{PostId: postToDelete.PostId}).Return(expectedResponse, nil)
-
-	// Creating an instance of the ClientService
 	clientService := ClientService{}
-
-	// Calling the DeletePost method
 	response, err := clientService.DeletePost(context.Background(), mockClient, postToDelete)
 
-	// Assertions to verify the outcomes
 	assert.NoError(t, err)
 	assert.Equal(t, expectedResponse, response)
-	mockClient.AssertExpectations(t) // Ensure the mock's expectations were met
+	mockClient.AssertExpectations(t) 
 }
