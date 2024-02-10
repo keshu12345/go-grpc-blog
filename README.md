@@ -88,10 +88,9 @@ This is an example of how to list things you need to use the software and how to
     go run blogPostServer/server.go -config config/local
     ```
 
-2. Non prod Environment
-
+    2. Non prod Environment
     ```
-    go run blogPostServer/server.go -config config/non-prod
+     go run blogPostServer/server.go -config config/non-prod
     ```
     3. Prod Environment
 
